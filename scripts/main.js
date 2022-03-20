@@ -6,7 +6,7 @@
     let Truck = App.Truck;
     let DataStore = App.DataStore;
     let FormHandler = App.FormHandler;
-    let Checklist = App.Checklist
+    let Checklist = App.Checklist;
 
     let myTruck = new Truck('12345', new DataStore());
     let checkList = new Checklist(CHECKLIST_SELECTOR);
