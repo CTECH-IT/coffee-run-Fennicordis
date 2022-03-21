@@ -3,19 +3,18 @@
     let App = window.App || {};
     let $ = window.jQuery;
 
-    class FormHandler {
-        constructor(selector) {
-            if (!selector) {
-                throw new Error('No selector provided!');
-            }
+    function FormHandler(selector) {
+        if (!selector) {
+            throw new Error('No selector provided!');
+        }
 
-            // find the "selector" in the DOM using jQuery and assign it to this.formElement
-            this.$formElement = $(selector);
-            if (this.$formElement.length == 0) {
-                throw new Error('Could not find element with selector: ' + selector);
-            }
+        // find the "selector" in the DOM using jQuery and assign it to this.formElement
+        this.$formElement = $(selector);
+        if (this.$formElement.length == 0) {
+            throw new Error('Could not find element with selector: ' + selector);
         }
     }
+
 
     // add an event handler for the submit button and pass in createOrder as a parameter (func)
     FormHandler.prototype.addSubmitHandler = function (func) {
