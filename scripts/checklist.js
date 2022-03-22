@@ -28,6 +28,13 @@
                 .closest('[data-coffee-order="checkbox"]')
                 .remove();
         }
+        addClickHandler(func) {
+            this.$element.on('click', 'input', function (event) {
+                var email = event.target.value;
+                this.removeRow(email);
+                func(email);
+            }.bind(this));
+        };
     }
 
     class Row {
