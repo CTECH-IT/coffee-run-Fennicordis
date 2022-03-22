@@ -9,7 +9,7 @@
         }
         createOrder(order) {
             console.log('Adding order for ' + order.emailAddress);
-            this.db.add(order);
+            this.db.add(order.emailAddress, order);
         }
         deliverOrder(customerId) {
             console.log('Delivering order for ' + customerId);
