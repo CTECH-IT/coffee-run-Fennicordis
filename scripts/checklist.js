@@ -14,12 +14,6 @@
                 throw new Error('Could not find element with selector: ' + selector);
             }
         }
-        removeRow(email) {
-            this.$element
-                .find('[value="' + email + '"]')
-                .closest('[data-coffee-order="checklist"]')
-                .remove();
-        }
         addRow(coffeeOrder) {
             // Remove any existing rows that match the email address
             this.removeRow(coffeeOrder.emailAddress);
@@ -27,6 +21,12 @@
             var rowElement = new Row(coffeeOrder);
             // Add the new row instance's $element property to the checklist
             this.$element.append(rowElement.$element);
+        }
+        removeRow(email) {
+            this.$element
+                .find('[value="' + email + '"]')
+                .closest('[data-coffee-order="checkbox"]')
+                .remove();
         }
     }
 
@@ -38,7 +38,7 @@
             });
             let $label = $('<label></label>');
 
-            let $checkbox = $('input></input>', {
+            let $checkbox = $('<input></input>', {
                 type: 'checkbox',
                 value: coffeeOrder.emailAddress
             });
